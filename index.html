@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BookRate — A rede social para quem ama livros. Avalie, descubra e compartilhe suas leituras." />
+  <title>BookRate — Avalie. Descubra. Conecte.</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { 300: '#fcd34d', 400: '#fbbf24', 500: '#f59e0b', 600: '#d97706' },
+            surface: { 900: '#0f0e17', 800: '#1a1826', 700: '#252336', 600: '#2f2c47' },
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body class="bg-surface-900 text-white font-sans antialiased">
+
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Navegação principal">
+      <div class="flex items-center justify-between h-16">
+
+        <a href="#inicio" class="flex items-center gap-2 text-xl font-bold text-white hover:text-brand-400 transition-colors">
+          <span class="text-2xl" aria-hidden="true">📚</span>
+          <span>Book<span class="text-brand-500">Rate</span></span>
+        </a>
+
+        <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300" role="list">
+          <li><a href="#recursos" class="hover:text-white transition-colors">Recursos</a></li>
+          <li><a href="#livros" class="hover:text-white transition-colors">Livros</a></li>
+          <li><a href="#buscar" class="hover:text-white transition-colors">Buscar</a></li>
+          <li><a href="#avaliar" class="hover:text-white transition-colors">Avaliar</a></li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <a href="#cadastro" class="hidden md:inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors">
+            Entrar na lista
+          </a>
+          <button id="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"
+            class="md:hidden p-2 rounded-lg hover:bg-surface-700 transition-colors">
+            <span class="hamburger-bar block"></span>
+            <span class="hamburger-bar block"></span>
+            <span class="hamburger-bar block"></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="md:hidden hidden border-t border-surface-600" role="dialog" aria-modal="true" aria-label="Menu de navegação">
+        <ul class="flex flex-col gap-1 py-4" role="list">
+          <li><a href="#recursos" class="mobile-link block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-surface-700 transition-colors">Recursos</a></li>
+          <li><a href="#livros" class="mobile-link block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-surface-700 transition-colors">Livros</a></li>
+          <li><a href="#buscar" class="mobile-link block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-surface-700 transition-colors">Buscar</a></li>
+          <li><a href="#avaliar" class="mobile-link block px-4 py-3 rounded-lg text-gray-300 hover:text-white hover:bg-surface-700 transition-colors">Avaliar</a></li>
+          <li class="mt-2 px-4">
+            <a href="#cadastro" class="mobile-link block text-center bg-brand-500 hover:bg-brand-600 text-white font-semibold px-4 py-3 rounded-full transition-colors">
+              Entrar na lista
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="inicio" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
+      <div class="hero-bg absolute inset-0" aria-hidden="true"></div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="space-y-8">
+            <div class="inline-flex items-center gap-2 bg-brand-500/10 border border-brand-500/30 text-brand-400 text-sm font-medium px-4 py-1.5 rounded-full">
+              <span aria-hidden="true">✨</span> Em desenvolvimento — entre para a lista de espera
+            </div>
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight">
+              Cada livro<br />
+              merece uma<br />
+              <span class="text-gradient">boa crítica.</span>
+            </h1>
+            <p class="text-lg text-gray-400 max-w-md leading-relaxed">
+              O BookRate é a rede social para leitores apaixonados. Avalie livros, descubra novas leituras e conecte-se com pessoas que amam ler tanto quanto você.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <a href="#cadastro"
+                class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-8 py-4 rounded-full text-lg transition-all hover:scale-105 shadow-lg shadow-brand-500/25">
+                Começar agora
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="#livros"
+                class="inline-flex items-center gap-2 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold px-8 py-4 rounded-full text-lg transition-colors">
+                Ver livros
+              </a>
+            </div>
+          </div>
+
+          <div class="hidden lg:block relative h-[480px]" aria-hidden="true">
+            <div class="float-card absolute top-0 right-8 bg-surface-700 rounded-2xl p-5 w-56 shadow-2xl border border-surface-600">
+              <div class="text-4xl mb-3">📖</div>
+              <p class="font-semibold text-sm">1984</p>
+              <p class="text-xs text-gray-400 mb-3">George Orwell</p>
+              <span class="text-brand-400 text-base">★★★★★</span>
+              <p class="text-xs text-gray-500 mt-1">2.341 avaliações</p>
+            </div>
+            <div class="float-card float-delay-1 absolute top-24 left-0 bg-surface-700 rounded-2xl p-5 w-56 shadow-2xl border border-surface-600">
+              <div class="text-4xl mb-3">💍</div>
+              <p class="font-semibold text-sm">O Senhor dos Anéis</p>
+              <p class="text-xs text-gray-400 mb-3">J.R.R. Tolkien</p>
+              <span class="text-brand-400 text-base">★★★★★</span>
+              <p class="text-xs text-gray-500 mt-1">3.891 avaliações</p>
+            </div>
+            <div class="float-card float-delay-2 absolute bottom-16 right-0 bg-surface-700 rounded-2xl p-5 w-56 shadow-2xl border border-surface-600">
+              <div class="text-4xl mb-3">🧠</div>
+              <p class="font-semibold text-sm">Sapiens</p>
+              <p class="text-xs text-gray-400 mb-3">Yuval Noah Harari</p>
+              <span class="text-brand-400 text-base">★★★★</span><span class="text-gray-600 text-base">★</span>
+              <p class="text-xs text-gray-500 mt-1">1.876 avaliações</p>
+            </div>
+            <div class="float-card float-delay-3 absolute bottom-0 left-12 bg-surface-700 rounded-2xl p-5 w-52 shadow-2xl border border-surface-600">
+              <div class="text-4xl mb-3">⚡</div>
+              <p class="font-semibold text-sm">Harry Potter</p>
+              <p class="text-xs text-gray-400 mb-3">J.K. Rowling</p>
+              <span class="text-brand-400 text-base">★★★★★</span>
+              <p class="text-xs text-gray-500 mt-1">5.234 avaliações</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-surface-800 border-y border-surface-700" aria-label="Estatísticas da plataforma">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ul class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center" role="list">
+          <li><p class="text-4xl font-extrabold text-brand-400">48,2K</p><p class="text-sm text-gray-400 mt-1">Livros cadastrados</p></li>
+          <li><p class="text-4xl font-extrabold text-brand-400">120K</p><p class="text-sm text-gray-400 mt-1">Leitores ativos</p></li>
+          <li><p class="text-4xl font-extrabold text-brand-400">890K</p><p class="text-sm text-gray-400 mt-1">Avaliações escritas</p></li>
+          <li><p class="text-4xl font-extrabold text-brand-400">4,7 ★</p><p class="text-sm text-gray-400 mt-1">Média da plataforma</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="recursos" class="py-24 bg-surface-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="text-center mb-16">
+          <h2 class="text-4xl font-extrabold mb-4">Tudo que um leitor precisa</h2>
+          <p class="text-gray-400 text-lg max-w-xl mx-auto">O BookRate reúne as ferramentas certas para tornar cada leitura uma experiência completa.</p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <article class="feature-card group bg-surface-800 rounded-2xl p-8 border border-surface-700 hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500/20 transition-colors" aria-hidden="true">⭐</div>
+            <h3 class="text-xl font-bold mb-3">Avalie livros</h3>
+            <p class="text-gray-400 leading-relaxed">Dê notas de 1 a 5 estrelas, escreva críticas detalhadas e compartilhe suas impressões com a comunidade.</p>
+          </article>
+
+          <article class="feature-card group bg-surface-800 rounded-2xl p-8 border border-surface-700 hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500/20 transition-colors" aria-hidden="true">🔍</div>
+            <h3 class="text-xl font-bold mb-3">Descubra leituras</h3>
+            <p class="text-gray-400 leading-relaxed">Encontre novos livros com base nos seus gêneros favoritos, nas avaliações da comunidade e em recomendações personalizadas.</p>
+          </article>
+
+          <article class="feature-card group bg-surface-800 rounded-2xl p-8 border border-surface-700 hover:border-brand-500/50 transition-all duration-300">
+            <div class="w-14 h-14 bg-brand-500/10 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500/20 transition-colors" aria-hidden="true">👥</div>
+            <h3 class="text-xl font-bold mb-3">Conecte-se</h3>
+            <p class="text-gray-400 leading-relaxed">Siga leitores com gostos similares, crie listas de leitura e participe de clubes do livro virtuais.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="livros" class="py-24 bg-surface-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="text-center mb-12">
+          <h2 class="text-4xl font-extrabold mb-4">Livros em destaque</h2>
+          <p class="text-gray-400 text-lg">Filtre por gênero e explore as melhores avaliações.</p>
+        </header>
+
+        <div class="flex flex-wrap justify-center gap-3 mb-12" role="group" aria-label="Filtrar livros por gênero">
+          <button class="filter-btn active-filter" data-filter="todos" aria-pressed="true">Todos</button>
+          <button class="filter-btn" data-filter="ficção" aria-pressed="false">Ficção</button>
+          <button class="filter-btn" data-filter="fantasia" aria-pressed="false">Fantasia</button>
+          <button class="filter-btn" data-filter="romance" aria-pressed="false">Romance</button>
+          <button class="filter-btn" data-filter="não-ficção" aria-pressed="false">Não-ficção</button>
+          <button class="filter-btn" data-filter="ciência" aria-pressed="false">Ciência</button>
+        </div>
+
+        <div id="books-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" aria-live="polite" aria-atomic="true"></div>
+        <p id="no-books-msg" class="hidden text-center text-gray-500 py-12 text-lg">Nenhum livro encontrado para este filtro.</p>
+      </div>
+    </section>
+
+    <section id="buscar" class="py-24 bg-surface-900">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="text-center mb-12">
+          <h2 class="text-4xl font-extrabold mb-4">Buscar na biblioteca mundial</h2>
+          <p class="text-gray-400 text-lg">
+            Pesquise qualquer livro via <abbr title="Open Library — base de dados aberta com milhões de livros">Open Library</abbr> e adicione à sua lista.
+          </p>
+        </header>
+
+        <form id="search-form" class="flex gap-3 mb-10" role="search" aria-label="Buscar livros">
+          <label for="search-input" class="sr-only">Título ou autor do livro</label>
+          <input type="search" id="search-input" name="q"
+            placeholder="Ex: Dom Casmurro, Clarice Lispector, Tolkien..."
+            class="flex-1 bg-surface-800 border border-surface-600 text-white placeholder-gray-500 rounded-xl px-5 py-3.5 focus:outline-none focus:border-brand-500 transition-colors"
+            autocomplete="off" />
+          <button type="submit"
+            class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 py-3.5 rounded-xl transition-colors flex items-center gap-2 whitespace-nowrap">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+            Buscar
+          </button>
+        </form>
+
+        <div id="search-loading" class="hidden text-center py-12">
+          <div class="inline-block w-8 h-8 border-2 border-brand-500 border-t-transparent rounded-full animate-spin mb-4" role="status" aria-label="Carregando"></div>
+          <p class="text-gray-400">Buscando livros...</p>
+        </div>
+        <p id="search-error" class="hidden text-center text-red-400 py-8" role="alert"></p>
+        <p id="search-empty" class="hidden text-center text-gray-500 py-8">Nenhum resultado encontrado. Tente outro termo.</p>
+        <div id="search-results" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" aria-live="polite" aria-label="Resultados da busca"></div>
+      </div>
+    </section>
+
+    <section id="avaliar" class="py-24 bg-surface-800">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="text-center mb-12">
+          <h2 class="text-4xl font-extrabold mb-4">Escreva sua avaliação</h2>
+          <p class="text-gray-400 text-lg">Compartilhe sua opinião e ajude outros leitores.</p>
+        </header>
+
+        <form id="review-form" class="space-y-6" novalidate aria-label="Formulário de avaliação de livro">
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="field-group">
+              <label for="book-title" class="field-label">
+                Nome do livro <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+              </label>
+              <input type="text" id="book-title" name="book-title" placeholder="Ex: O Alquimista"
+                class="field-input" required autocomplete="off" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="field-group">
+              <label for="book-author" class="field-label">
+                Autor <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+              </label>
+              <input type="text" id="book-author" name="book-author" placeholder="Ex: Paulo Coelho"
+                class="field-input" required autocomplete="off" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">
+              Sua nota <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+            </label>
+            <div class="star-rating" id="star-rating" role="radiogroup" aria-label="Selecione de 1 a 5 estrelas">
+              <button type="button" class="star" data-value="1" aria-label="1 estrela" aria-pressed="false">★</button>
+              <button type="button" class="star" data-value="2" aria-label="2 estrelas" aria-pressed="false">★</button>
+              <button type="button" class="star" data-value="3" aria-label="3 estrelas" aria-pressed="false">★</button>
+              <button type="button" class="star" data-value="4" aria-label="4 estrelas" aria-pressed="false">★</button>
+              <button type="button" class="star" data-value="5" aria-label="5 estrelas" aria-pressed="false">★</button>
+            </div>
+            <input type="hidden" id="rating-value" name="rating" value="" />
+            <span id="rating-error" class="field-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <div class="field-group">
+            <label for="review-text" class="field-label">
+              Crítica <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+              <span class="text-xs text-gray-500 font-normal ml-2">(mínimo 50 caracteres)</span>
+            </label>
+            <textarea id="review-text" name="review-text" rows="5"
+              placeholder="Descreva o que achou do livro: pontos fortes, pontos fracos, para quem recomendaria..."
+              class="field-input resize-none" required minlength="50"></textarea>
+            <div class="flex justify-between items-start mt-1">
+              <span class="field-error" role="alert" aria-live="polite"></span>
+              <span id="char-count" class="text-xs text-gray-500 ml-auto whitespace-nowrap">0 / 50</span>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="field-group">
+              <label for="reviewer-name" class="field-label">
+                Seu nome <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+              </label>
+              <input type="text" id="reviewer-name" name="reviewer-name" placeholder="Ex: Maria Silva"
+                class="field-input" required autocomplete="name" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+            <div class="field-group">
+              <label for="reviewer-email" class="field-label">
+                E-mail <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+              </label>
+              <input type="email" id="reviewer-email" name="reviewer-email" placeholder="seu@email.com"
+                class="field-input" required autocomplete="email" />
+              <span class="field-error" role="alert" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <button type="submit"
+            class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl text-lg transition-all hover:scale-[1.01] shadow-lg shadow-brand-500/20">
+            Publicar avaliação
+          </button>
+        </form>
+
+        <div id="review-success" class="hidden mt-6 bg-green-900/30 border border-green-500/40 rounded-2xl p-8 text-center animate-in" role="status" aria-live="polite">
+          <div class="text-5xl mb-4" aria-hidden="true">🎉</div>
+          <h3 class="text-xl font-bold text-green-400 mb-2">Avaliação publicada!</h3>
+          <p class="text-gray-400">Obrigado por contribuir com a comunidade BookRate. Sua crítica já está disponível.</p>
+          <button id="new-review-btn" class="mt-6 text-brand-400 hover:text-brand-300 font-medium text-sm underline transition-colors">
+            Escrever outra avaliação
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="cadastro" class="py-24 bg-surface-900">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+          <div class="space-y-6">
+            <h2 class="text-4xl font-extrabold leading-tight">
+              Entre para a<br />
+              <span class="text-gradient">maior comunidade</span><br />
+              de leitores do Brasil.
+            </h2>
+            <p class="text-gray-400 text-lg leading-relaxed">
+              Seja um dos primeiros a ter acesso à plataforma. Cadastre-se agora e receba novidades, indicações personalizadas e acesso antecipado ao BookRate.
+            </p>
+            <ul class="space-y-3 text-gray-300" role="list">
+              <li class="flex items-center gap-3"><span class="text-brand-400 font-bold" aria-hidden="true">✓</span> Acesso antecipado à plataforma</li>
+              <li class="flex items-center gap-3"><span class="text-brand-400 font-bold" aria-hidden="true">✓</span> Indicações personalizadas por gênero</li>
+              <li class="flex items-center gap-3"><span class="text-brand-400 font-bold" aria-hidden="true">✓</span> Newsletter semanal com novos lançamentos</li>
+              <li class="flex items-center gap-3"><span class="text-brand-400 font-bold" aria-hidden="true">✓</span> Sem spam — cancele quando quiser</li>
+            </ul>
+          </div>
+
+          <div class="bg-surface-800 rounded-2xl p-8 border border-surface-700">
+            <form id="signup-form" class="space-y-5" novalidate aria-label="Formulário de pré-cadastro">
+              <h3 class="text-xl font-bold mb-6">Criar minha conta</h3>
+
+              <div class="field-group">
+                <label for="signup-name" class="field-label">
+                  Nome completo <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+                </label>
+                <input type="text" id="signup-name" name="name" placeholder="João da Silva"
+                  class="field-input" required autocomplete="name" />
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="signup-email" class="field-label">
+                  E-mail <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+                </label>
+                <input type="email" id="signup-email" name="email" placeholder="joao@email.com"
+                  class="field-input" required autocomplete="email" />
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field-group">
+                <label for="signup-genre" class="field-label">
+                  Gênero favorito <abbr title="obrigatório" class="text-red-400 no-underline">*</abbr>
+                </label>
+                <select id="signup-genre" name="genre" class="field-input" required>
+                  <option value="">Selecione um gênero...</option>
+                  <option value="ficção">Ficção Científica</option>
+                  <option value="fantasia">Fantasia</option>
+                  <option value="romance">Romance</option>
+                  <option value="thriller">Thriller / Suspense</option>
+                  <option value="não-ficção">Não-ficção</option>
+                  <option value="biografia">Biografia</option>
+                  <option value="história">História</option>
+                  <option value="ciência">Ciência / Tecnologia</option>
+                </select>
+                <span class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="field-group">
+                <label class="flex items-start gap-3 cursor-pointer">
+                  <input type="checkbox" id="signup-terms" name="terms"
+                    class="mt-1 w-4 h-4 accent-amber-500 flex-shrink-0" required />
+                  <span class="text-sm text-gray-400">
+                    Concordo com os <a href="#" class="text-brand-400 hover:text-brand-300 underline">Termos de Uso</a> e a
+                    <a href="#" class="text-brand-400 hover:text-brand-300 underline">Política de Privacidade</a>.
+                  </span>
+                </label>
+                <span id="terms-error" class="field-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <button type="submit"
+                class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition-all hover:scale-[1.01] shadow-lg shadow-brand-500/20">
+                Quero entrar na lista!
+              </button>
+            </form>
+
+            <div id="signup-success" class="hidden animate-in" role="status" aria-live="polite">
+              <div class="text-center py-4">
+                <div class="text-5xl mb-4" aria-hidden="true">📬</div>
+                <h3 class="text-xl font-bold text-green-400 mb-2">Você está na lista!</h3>
+                <p class="text-gray-400 text-sm">Fique de olho no seu e-mail. Quando o BookRate abrir as portas, você será um dos primeiros a saber.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-surface-800 border-t border-surface-700 py-12" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div class="lg:col-span-2">
+          <a href="#inicio" class="flex items-center gap-2 text-xl font-bold mb-4 hover:text-brand-400 transition-colors">
+            <span class="text-2xl" aria-hidden="true">📚</span>
+            Book<span class="text-brand-500">Rate</span>
+          </a>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+            A rede social para quem ama livros. Avalie, descubra e compartilhe suas leituras com uma comunidade apaixonada.
+          </p>
+        </div>
+
+        <nav aria-label="Links da plataforma">
+          <h4 class="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wider">Plataforma</h4>
+          <ul class="space-y-2 text-sm text-gray-400" role="list">
+            <li><a href="#recursos" class="hover:text-white transition-colors">Recursos</a></li>
+            <li><a href="#livros" class="hover:text-white transition-colors">Livros</a></li>
+            <li><a href="#buscar" class="hover:text-white transition-colors">Buscar</a></li>
+            <li><a href="#avaliar" class="hover:text-white transition-colors">Avaliar</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Links legais e de suporte">
+          <h4 class="text-sm font-semibold text-gray-300 mb-4 uppercase tracking-wider">Legal</h4>
+          <ul class="space-y-2 text-sm text-gray-400" role="list">
+            <li><a href="#" class="hover:text-white transition-colors">Termos de Uso</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacidade</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Cookies</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="border-t border-surface-700 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <p class="text-xs text-gray-500">&copy; 2025 BookRate. Feito com ❤️ para leitores.</p>
+        <p class="text-xs text-gray-600">
+          Dados de busca fornecidos pela
+          <a href="https://openlibrary.org" target="_blank" rel="noopener noreferrer" class="hover:text-gray-400 underline transition-colors">Open Library</a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" aria-label="Voltar ao topo da página"
+    class="fixed bottom-6 right-6 w-12 h-12 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-lg shadow-brand-500/30 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 z-40">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
